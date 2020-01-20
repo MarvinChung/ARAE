@@ -1,0 +1,1 @@
+/work/ntulab508/ho/seq2seq_eval/seq2seq_zh.txt
