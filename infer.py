@@ -40,6 +40,8 @@ parser.add_argument('--no-lowercase', dest='lowercase', action='store_true',
 parser.set_defaults(lowercase=True)
 
 # Other
+parser.add_argument('--epochs', type=int, default=25,
+                    help='maximum number of epochs')
 parser.add_argument('--seed', type=int, default=1111,
                     help='random seed')
 parser.add_argument('--cuda', dest='cuda', action='store_true',
