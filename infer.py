@@ -42,6 +42,8 @@ parser.set_defaults(lowercase=True)
 # Other
 parser.add_argument('--epochs', type=int, default=25,
                     help='maximum number of epochs')
+parser.add_argument('--sample', action='store_true',
+                    help='sample when decoding for generation')
 parser.add_argument('--seed', type=int, default=1111,
                     help='random seed')
 parser.add_argument('--cuda', dest='cuda', action='store_true',
@@ -130,9 +132,6 @@ if args.cuda:
     gan_gen = gan_gen.cuda()
     gan_disc = gan_disc.cuda()
 
-fixed_noise = to_gpu(args.cuda,
-                     Variable(torch.ones(args.batch_size, args.z_size)))
-fixed_noise.data.normal_(0, 1)
 one = to_gpu(args.cuda, torch.FloatTensor([1]))
 mone = one * -1
 
